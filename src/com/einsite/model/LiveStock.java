@@ -1,5 +1,6 @@
 package com.einsite.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "LIVESTOCK")
-public class LiveStock {
+public class LiveStock implements Serializable{
 
 	private String ticker;
 	private String exchange;
@@ -69,9 +70,10 @@ public class LiveStock {
 	public void setChangePercent(float changePercent) {
 		this.changePercent = changePercent;
 	}
-
+	
+	@Id
 	//@Temporal(TemporalType.DATE)
-	@Column(name = "DATE", nullable = false, length = 20)
+	@Column(name = "DDATE", nullable = false, length = 20)
 	public Date getDate() {
 		return date;
 	}
